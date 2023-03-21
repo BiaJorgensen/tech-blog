@@ -3,7 +3,7 @@ const { User } = require('../../models');
 
 router.post('/login', async (req, res) => {
     try {
-        // Check if email exists in db
+        // Check if username exists in db
         userData = await User.findOne({
             where: {
                 username: req.body.username
@@ -12,17 +12,17 @@ router.post('/login', async (req, res) => {
 
         // If email does not exist, send error message
         if(!userData) {
-            res.status(400).json({ message: 'Incorrect Email or Password'});
+            res.status(400).json({ message: 'Incorrect Username or Password'});
             return;
         }
         // Using verifyPassword function in User.js model to see if password is correct
         const correctPassword = await userData.verifyPassword(req.body.password);
         // If password is incorrect, sends error message
         if(!correctPassword) {
-            res.status(400).json({ message: 'Incorrect Email or Password'});
+            res.status(400).json({ message: 'Incorrect Username or Password'});
             return; 
         }
-        // If email existis in db and password is correct, registers req.session.loggedIn as TRUE and sends success message
+        // If username existis in db and password is correct, registers req.session.loggedIn as TRUE and sends success message
         req.session.save(() => {
             req.session.loggedIn = true;
 
