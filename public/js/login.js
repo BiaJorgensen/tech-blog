@@ -1,8 +1,8 @@
 const login = async (event) => {
     event.preventDefault();
 
-    const username = $('login-username');
-    const password = $('login-password');
+    const username = $('#login-username').val().trim();
+    const password = $('#login-password').val().trim();
 
     if (username && password) {
     const response = await fetch('/api/user/login', {
@@ -17,3 +17,4 @@ const login = async (event) => {
     }
 };
 
+$('.login-form').submit(login);
