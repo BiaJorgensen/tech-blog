@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
 
         const posts = postsData.map((post) => post.get({ plain: true }));
-
+        console.log(posts);
         res.render('homepage', {posts});
 
     } catch (err) {
@@ -25,15 +25,15 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const userPosts = await User.findByPk(req.session.user_id,{
+        const userPosts = await User.findByPk(1,{
             attributes: { exclude: ['password'] },
             include: [{model: Post}],
         });
 
 
-        const posts = userPosts.map((post) => post.get({ plain: true }));
-
-        res.render('dashboard', {posts});
+        const posts = userPosts.get({ plain: true });
+console.log(posts);
+        res.render('dashboard', posts);
 
     } catch (err) {
         res.status(500).json(err);
