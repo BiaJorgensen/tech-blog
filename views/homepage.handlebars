@@ -1,8 +1,11 @@
 {{#each posts as |post|}}
 <section class="card">
   <a href="/post/{{id}}">
-    <header>{{title}}</header>
-    <p>Posted by {{user.username}} on {{date_created}}
+    <div>
+      <header>{{title}}</header>
+      <p>Posted by {{user.username}} on {{date_created}}
+      </div>
+      <p>{{content}}</p>
   </a>
 </section>
 {{/each}}
