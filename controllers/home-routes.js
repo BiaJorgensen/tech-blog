@@ -18,7 +18,7 @@ router.get('/', async (req, res) => {
         console.log(posts);
         res.render('homepage', {
             posts,
-            // This will determine ig Login or Logout will show on page
+            // This will determine if Login or Logout will show on page
         loggedIn: req.session.loggedIn
     });
 
@@ -29,32 +29,30 @@ router.get('/', async (req, res) => {
 
 router.get('/dashboard', withAuth, async (req, res) => {
     try {
-        const userPosts = await User.findByPk(1,{
+        const userPosts = await User.findByPk(req.session.user_id,{
             attributes: { exclude: ['password'] },
             include: [{model: Post}],
         });
 
 
         const posts = userPosts.get({ plain: true });
-console.log(posts);
-        res.render('dashboard', posts);
+        console.log(posts);
+        res.render('dashboard', {
+            ...posts,
+            loggedIn: req.session.loggedIn
+        }
+         );
 
     } catch (err) {
         res.status(500).json(err);
     }
 });
 
-router.get('/signup', (req, res) => {
-    res.render('signup')
-})
 
-router.get('/login', (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect('/');
-    return;
-  }
+router.get('/new-post', withAuth, (req, res) => res.render('newPost', {loggedIn: req.session.loggedIn} ))
 
-  res.render('login');
-});
+router.get('/signup', (req, res) => req.session.loggedIn ? res.redirect('/') : res.render('signup'))
+
+router.get('/login', (req, res) => req.session.loggedIn ? res.redirect('/') : res.render('login'));
 
 module.exports = router;

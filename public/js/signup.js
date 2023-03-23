@@ -22,4 +22,6 @@ const signup = async (event) => {
       }
     };
 
-$('.signup-form').submit(signup);
+$('#signup-btn').click(signup);
+
+console.log($('#signup-btn'));
