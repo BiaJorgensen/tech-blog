@@ -1,14 +1,14 @@
 const signup = async (event) => {
     event.preventDefault();
-    
-    const email = $('#signup-email').val().trim();
-    const username = $('#login-username').val().trim();
-    const password = $('#login-password').val().trim();
 
-    if (email && username && password) {
-        const response = await fetch('/api/users', {
+   
+    const username = $('#signup-username').val().trim();
+    const password = $('#signup-password').val().trim();
+
+    if (username && password) {
+        const response = await fetch('/api/user', {
           method: 'POST',
-          body: JSON.stringify({ email, username, password }),
+          body: JSON.stringify({ username, password }),
           headers: { 'Content-Type': 'application/json' },
         });
     

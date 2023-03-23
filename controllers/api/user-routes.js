@@ -8,8 +8,9 @@ router.post('/', async (req, res) => {
       req.session.save(() => {
         req.session.user_id = userData.id;
         req.session.logged_in = true;
-  
+        
         res.status(200).json(userData);
+        
       });
     } catch (err) {
       res.status(400).json(err);
@@ -43,9 +44,10 @@ router.post('/login', async (req, res) => {
         }
         // If username existis in db and password is correct, registers req.session.loggedIn as TRUE and sends success message
         req.session.save(() => {
+            req.session.user_id = userData.id;
             req.session.loggedIn = true;
 
-            res.status(200).json({ message: 'Logged In'})
+            res.json({ user: userData, message: 'Logged In'})
         })
     } catch (err) {
         console.log(err);
