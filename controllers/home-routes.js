@@ -16,7 +16,11 @@ router.get('/', async (req, res) => {
 
         const posts = postsData.map((post) => post.get({ plain: true }));
         console.log(posts);
-        res.render('homepage', {posts});
+        res.render('homepage', {
+            posts,
+            // This will determine ig Login or Logout will show on page
+        loggedIn: req.session.loggedIn
+    });
 
     } catch (err) {
         res.status(500).json(err);
