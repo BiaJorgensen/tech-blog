@@ -1,5 +1,7 @@
 const signup = async (event) => {
+  
     event.preventDefault();
+    console.log("testing");
 
    
     const username = $('#signup-username').val().trim();
