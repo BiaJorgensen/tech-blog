@@ -1,8 +1,5 @@
 const post = async (event) => {
-  
     event.preventDefault();
-    console.log("testing");
-
    
     const title = $('#post-title').val().trim();
     const content = $('#post-content').val().trim();
@@ -22,6 +19,30 @@ const post = async (event) => {
       }
     };
 
-$('#post-btn').click(post);
+const updatePost = async (event) => {
+  
+    event.preventDefault();
+    const id = window.location.pathname.split('/').pop();
+    const title = $('#update-post-title').val().trim();
+    const content = $('#update-post-content').val().trim();
 
-console.log($('#post-btn'));
+    if (title || content) {
+        const response = await fetch(`/api/post/${id}`, {
+          method: 'PUT',
+          body: JSON.stringify({ title, content }),
+          headers: { 'Content-Type': 'application/json' },
+        });
+    
+        if (response.ok) {
+          document.location.replace('/dashboard');
+        } else {
+          alert(response.statusText);
+        }
+      }
+    };
+
+
+
+
+$('#post-btn').click(post);
+$('#update-post-btn').click(updatePost);
