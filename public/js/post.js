@@ -20,7 +20,6 @@ const post = async (event) => {
     };
 
 const updatePost = async (event) => {
-  
     event.preventDefault();
     const id = window.location.pathname.split('/').pop();
     const title = $('#update-post-title').val().trim();
@@ -41,8 +40,24 @@ const updatePost = async (event) => {
       }
     };
 
+    const deletePost = async (event) => {
+      event.preventDefault();
+      const id = window.location.pathname.split('/').pop();
+      const response = await fetch(`/api/post/${id}`, {
+            method: 'DELETE',
+          });
+      
+          if (response.ok) {
+            document.location.replace('/dashboard');
+          } else {
+            alert(response.statusText);
+          }
+        
+      };
+
 
 
 
 $('#post-btn').click(post);
 $('#update-post-btn').click(updatePost);
+$('#delete-post-btn').click(deletePost);
