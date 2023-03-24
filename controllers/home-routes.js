@@ -62,7 +62,7 @@ router.get('/post/:id', withAuth, async (req, res) => {
        
 
         const userPost = onePostDate.get({ plain: true})
-console.log(userPost);
+
         if (userPost.username_id == req.session.user_id) {
             res.render('updatePost', {
             ...userPost,
