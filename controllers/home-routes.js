@@ -59,23 +59,34 @@ router.get('/update/post/:id', withAuth, async (req, res) => {
             res.status(404).json({ message: 'No posts found with that ID'});
           return;
         }
-       
-
         const userPost = onePostData.get({ plain: true})
-
         if (userPost.username_id == req.session.user_id) {
             res.render('updatePost', {
             ...userPost,
             loggedIn: req.session.loggedIn
         })
-        }else {
+        } else {
             res.status(401).json({ message: 'You are not authorized to edit this post.' });
         }
     } catch (err) {
         res.status(500).json(err);
-    }
-    
-})
+    } 
+});
+
+router.get('/add-comment/post/:id', withAuth, async (req, res) => {
+
+    try {
+        const onePostData = await Post.findByPk(req.params.id)
+        if (!onePostData) {
+            res.status(404).json({ message: 'No posts found with that ID'});
+          return;
+        }
+        const userPost = onePostData.get({ plain: true})
+       console.log(userPost);
+    } catch (err) {
+        res.status(500).json(err);
+    } 
+});
 
 
 
