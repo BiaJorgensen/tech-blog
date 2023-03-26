@@ -54,14 +54,14 @@ router.get('/new-post', withAuth, (req, res) => res.render('newPost', {loggedIn:
 router.get('/post/:id', withAuth, async (req, res) => {
 
     try {
-        const onePostDate = await Post.findByPk(req.params.id)
-        if (!onePostDate) {
+        const onePostData = await Post.findByPk(req.params.id)
+        if (!onePostData) {
             res.status(404).json({ message: 'No posts found with that ID'});
           return;
         }
        
 
-        const userPost = onePostDate.get({ plain: true})
+        const userPost = onePostData.get({ plain: true})
 
         if (userPost.username_id == req.session.user_id) {
             res.render('updatePost', {
