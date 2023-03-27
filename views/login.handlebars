@@ -1,26 +1,22 @@
-<div>
+<h2>Login</h2>
 
-    <h2>Login</h2>
-
-    <form class="login-form">
-        <div>
-            <label for="username-signin">Username:</label>
-            <input type="text" id="login-username">
+<div class="border border-1 border-info">
+    <form class="login-form m-2 form-group m-3">
+        <div class="form-outline">
+            <label for="username-signin" class="form-label">Username</label>
+            <input type="text" id="login-username" class="form-control">
         </div>
-        <div>
-            <label for="password-signin">Password:</label>
-            <input type="password" id="login-password">
+        <div class="form-outline">
+            <label for="password-signin" class="form-label">Password</label>
+            <input type="password" id="login-password" class="form-control">
         </div>
-        <div>
-            <button type="submit" class="btn btn-outline-info">Login</button>
+        <div class="my-2">
+            <button type="submit" class="btn btn-primary">Login</button>
         </div>
     </form>
-
-    
-    <div class="signup-instead">
-        <a href="/signup"><button type="submit" class="btn btn-outline-info">Sign Up Instead</button></a>
-    </div>
-
+    <div class="p-2 mb-3">
+        <a href="/signup" class="text-info fw-bold fs-5">Sign Up Instead</a>
+    </div> 
 </div>
 
 <script src="/js/login.js"></script>
