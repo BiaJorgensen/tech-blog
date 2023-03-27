@@ -1,10 +1,4 @@
-  <div>
-      <header>{{title}}</header>
-      <p>Posted by {{user.username}} on {{date_created}}
-    </div>
-    <p>{{content}}</p>
-    
-    
+ {{> post-details}}
  {{#each comments as |comment|}}
     <div>
         <p>{{comment.content}}</p>

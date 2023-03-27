@@ -1,11 +1,7 @@
 {{#each posts as |post|}}
 <section class="card">
   <a href="/add-comment/post/{{id}}">
-    <div>
-      <header>{{title}}</header>
-      <p>Posted by {{user.username}} on {{date_created}}
-      </div>
-      <p>{{content}}</p>
+    {{> post-details}}
   </a>
 </section>
 {{/each}}
