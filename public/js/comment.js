@@ -12,7 +12,7 @@ const addComment = async (event) => {
     });
 
     if (response.ok) {
-        document.location.replace('/');
+        document.location.replace(`/comment/${post_id}`);
     }
     else {
         alert("Please add a comment")
