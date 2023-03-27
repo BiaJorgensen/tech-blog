@@ -102,6 +102,12 @@ router.get('/add-comment/post/:id', withAuth, async (req, res) => {
     } 
 });
 
+// router.get('/comments', withAuth, async (req, res) => {
+//     try {
+//         const 
+//     }
+// })
+
 
 
 router.get('/signup', (req, res) => req.session.loggedIn ? res.redirect('/') : res.render('signup'))
