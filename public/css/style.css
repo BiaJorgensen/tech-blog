@@ -18,3 +18,9 @@ nav a:hover {
 #logout {
     cursor: pointer;
 }
+
+#see-all-comments {
+    color: rgb(199, 72, 157);
+    font-size: 20px;
+    cursor: pointer;
+}
