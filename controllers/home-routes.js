@@ -110,7 +110,13 @@ router.get('/comment/:id', withAuth, async (req, res) => {
                 model: User,
                 attributes: ['username']
             },
-            {model: Comment},   
+            {
+                model: Comment,
+                include: {
+                    model: User,
+                    attributes: ['username']
+                }
+            },   
             ]
         })
         if (!commentData) {
