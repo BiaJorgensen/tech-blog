@@ -126,6 +126,10 @@ router.get('/comment/:id', withAuth, async (req, res) => {
         else {
             const commentPost = commentData.get({ plain: true });
             console.log(commentPost);
+            res.render('showComment', {
+                ...commentPost,
+                loggedIn: req.session.loggedIn
+            })
         }
     }catch (err) {
         console.log(err.message);

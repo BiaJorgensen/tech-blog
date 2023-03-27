@@ -1,0 +1,17 @@
+  <div>
+      <header>{{title}}</header>
+      <p>Posted by {{user.username}} on {{date_created}}
+    </div>
+    <p>{{content}}</p>
+    
+    
+ {{#each comments as |comment|}}
+    <div>
+        <p>{{comment.content}}</p>
+        <div>
+            <p>{{comment.user.username}}</p>
+            <p>{{comment.date_created}}</p>
+        </div>
+    </div>
+    {{/each}}
+
