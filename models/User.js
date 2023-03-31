@@ -18,11 +18,21 @@ User.init(
     },
     username: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: {
+        args: true,
+        msg: "This username already exists, please try a different one."
+      }
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      validate: {
+        len: {
+          args: [8],
+          msg: "Password must be at least 8 characters long"
+        }
+      },
     },
   },
   {
