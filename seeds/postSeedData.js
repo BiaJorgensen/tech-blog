@@ -15,7 +15,7 @@ const postData = [
     },
     {
         "title": "Object-Relational Mapping",
-        "content": "I have really loved learning about ORMs. It's really simpliefied the way I create queries in SQL!",
+        "content": "I have really loved learning about ORMs. It's really simplified the way I create queries in SQL!",
         "username_id": 2,
         "date_created": "5/8/2020"
     }
