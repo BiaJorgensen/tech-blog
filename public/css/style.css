@@ -1,26 +1,26 @@
 body {
-   background-color: rgb(212, 224, 235); 
+  background-color: rgb(212, 224, 235);
 }
 
 a {
-    text-decoration: none;
-    color: black
+  text-decoration: none;
+  color: black;
 }
 
 nav a:hover {
-    color: rgba(158, 151, 158, 0.678);
+  color: rgba(158, 151, 158, 0.678);
 }
 
 .title-bar {
-    background-color: rgb(248, 214, 231);
+  background-color: rgb(248, 214, 231);
 }
 
 #logout {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #see-all-comments {
-    color: rgb(199, 72, 157);
-    font-size: 20px;
-    cursor: pointer;
+  color: rgb(199, 72, 157);
+  font-size: 20px;
+  cursor: pointer;
 }

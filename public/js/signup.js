@@ -1,3 +1,4 @@
+// Fetching api route to allow user to signup by creating a new User
 const signup = async (event) => {
   event.preventDefault();
   console.log("testing");

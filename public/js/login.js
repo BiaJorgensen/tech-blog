@@ -1,3 +1,4 @@
+// Fetching api route to allow user to log in
 const login = async (event) => {
   event.preventDefault();
   const username = $("#login-username").val().trim();
