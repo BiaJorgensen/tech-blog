@@ -47,6 +47,9 @@ N/A
 The license for this project is **The MIT License**<br>
 To learn more about this license, please access https://opensource.org/licenses/MIT
 
+## Link to deployed application
+https://bia-jorgensen-tech-blog.herokuapp.com/
+
 ## Website preview
 <kbd>![Tech-Blog-Homepage](./public/assets/Homepage.PNG)</kbd>
 <kbd>![Tech-Blog-Dashboard](./public/assets/Dashboard.PNG)</kbd>
